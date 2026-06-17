@@ -7,7 +7,7 @@ import java.nio.file.*;
 import java.util.*;
 import java.util.List;
 
-public class BankingGUI extends JFrame {
+public class BankingInformationSystem extends JFrame {
     private final Map<String, BankAccount> accounts = new HashMap<>();
     private final DefaultTableModel tableModel;   // now properly initialized
 
@@ -18,7 +18,7 @@ public class BankingGUI extends JFrame {
 
     private static final String PASSWORD = "admin123";
 
-    public BankingGUI() {
+    public BankingInformationSystem() {
         // Initialize the table model here (in the constructor)
         String[] columns = {"Account No.", "Holder Name", "Type", "Balance (₹)"};
         tableModel = new DefaultTableModel(columns, 0) {
@@ -41,7 +41,7 @@ public class BankingGUI extends JFrame {
 
         // Tabbed Pane
         JTabbedPane tabbedPane = new JTabbedPane();
-        tabbedPane.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+        tabbedPane.setFont(new Font("Dialog", Font.PLAIN, 14));
 
         tabbedPane.addTab("📋 All Accounts", createAllAccountsPanel());
         tabbedPane.addTab("➕ Create Account", createCreateAccountPanel());
@@ -307,7 +307,7 @@ public class BankingGUI extends JFrame {
         JTextField accField = new JTextField(15);
         JTextArea detailsArea = new JTextArea(12, 40);
         detailsArea.setEditable(false);
-        detailsArea.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+        detailsArea.setFont(new Font("Dialog", Font.PLAIN, 13));
         JScrollPane scroll = new JScrollPane(detailsArea);
 
         int row = 0;
@@ -648,7 +648,7 @@ public class BankingGUI extends JFrame {
             if (!showLoginDialog()) {
                 System.exit(0);
             }
-            BankingGUI gui = new BankingGUI();
+            BankingInformationSystem gui = new BankingInformationSystem();
             gui.setVisible(true);
         });
     }
